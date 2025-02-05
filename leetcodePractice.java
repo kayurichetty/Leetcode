@@ -40,14 +40,29 @@ public class leetcodePractice {
     }
  
     public static boolean areAlmostEqual(String s1, String s2) {
+        String newS1="";
         
         if (s1.equals(s2)){
             return true;
         }else if (s1.length() != s2.length()){
             return false;
-        }
+        } 
 
-        
+        for (int i = 0; i < s1.length()-1; i++) {
+            for (int index = i+1; index < s1.length(); index++) {
+                System.out.println("Swapping: "+ s1.charAt(i) + " with " + s1.charAt(index));
+                if (i==0){
+                     newS1= s1.charAt(index) + s1.substring(i+1, index)+ s1.substring(i,i+1)+ s1.substring(index+1);
+                }else{
+                     newS1= s1.substring(0, i)+ s1.charAt(index) + s1.substring(i+1, index)+ s1.substring(i,i+1)+ s1.substring(index+1);
+                }
+               
+                //System.out.println(newS1);
+                if (newS1.equals(s2)){
+                    return true;
+                }
+            }
+        }
         return false;
     }
     
