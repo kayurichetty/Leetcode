@@ -1,7 +1,9 @@
 public class leetcodePractice {
     public static void main(String[] args) {
-        int[] nums = { 3, 6, 10, 1, 8, 9, 9, 8, 9 };
-        System.out.println(maxAscendingSum(nums));
+        // int[] nums = { 3, 6, 10, 1, 8, 9, 9, 8, 9 };
+        // System.out.println(maxAscendingSum(nums));
+        System.out.println(areAlmostEqual("bank", "kanb"));
+
     }
 
     public static int maxAscendingSum(int[] nums) {
@@ -36,4 +38,17 @@ public class leetcodePractice {
         }
         return highest;
     }
+ 
+    public static boolean areAlmostEqual(String s1, String s2) {
+        
+        if (s1.equals(s2)){
+            return true;
+        }else if (s1.length() != s2.length()){
+            return false;
+        }
+
+        
+        return false;
+    }
+    
 }
