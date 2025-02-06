@@ -2,7 +2,9 @@ public class leetcodePractice {
     public static void main(String[] args) {
         // int[] nums = { 3, 6, 10, 1, 8, 9, 9, 8, 9 };
         // System.out.println(maxAscendingSum(nums));
-        System.out.println(areAlmostEqual("bank", "kanb"));
+       // System.out.println(areAlmostEqual("bank", "kanb"));
+       int[]  nums = {2,3,4,6};
+       System.out.println(tupleSameProduct(nums));
 
     }
 
@@ -65,5 +67,12 @@ public class leetcodePractice {
         }
         return false;
     }
+
+    public static int tupleSameProduct(int[] nums) {
+
+        return 0;
+        
+    }
+}
     
 }
