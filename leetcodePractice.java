@@ -69,6 +69,15 @@ public class leetcodePractice {
     }
 
     public static int tupleSameProduct(int[] nums) {
+        int productA = 0;
+        int productB = 0;
+        int arrnums[] = new int[4];
+
+         for (int i = 0; i < nums.length; i++) {
+             
+         }
+
+
 
         return 0;
         
