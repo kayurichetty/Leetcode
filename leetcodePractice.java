@@ -1,3 +1,6 @@
+
+import java.util.HashMap;
+
 public class leetcodePractice {
     public static void main(String[] args) {
         // int[] nums = { 3, 6, 10, 1, 8, 9, 9, 8, 9 };
@@ -72,23 +75,27 @@ public class leetcodePractice {
         int count=0;
         int productA = 0;
         int productB = 0;
-       
-         for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums.length; j++) {
-                for (int k = 0; k < nums.length; k++) {
-                    for (int l = 0; l < nums.length; l++) {
-                        if (i!=j && i!=k && i!=l && j!=k && j!=l && k!=l){
-                            productA = nums[i]*nums[j];
-                            productB = nums[k]*nums[l];
-                            if (productA == productB){
-                                count++;
-                        }
-                    }
-                }
+       HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length-1; i++) {
+            for (int j = i+1; j < nums.length; j++) {
+                productA=nums[i]*nums[j];
             }
-         }
-        
-    }
+        }
+    //      for (int i = 0; i < nums.length; i++) {
+    //         for (int j = 0; j < nums.length; j++) {
+    //             for (int k = 0; k < nums.length; k++) {
+    //                 for (int l = 0; l < nums.length; l++) {
+    //                     if (i!=j && i!=k && i!=l && j!=k && j!=l && k!=l){
+    //                         productA = nums[i]*nums[j];
+    //                         productB = nums[k]*nums[l];
+    //                         if (productA == productB){
+    //                             count++;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //      } 
+    // }
     return count;
 }
     
