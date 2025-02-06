@@ -69,19 +69,27 @@ public class leetcodePractice {
     }
 
     public static int tupleSameProduct(int[] nums) {
+        int count=0;
         int productA = 0;
         int productB = 0;
-        int arrnums[] = new int[4];
-
+       
          for (int i = 0; i < nums.length; i++) {
-             
+            for (int j = 0; j < nums.length; j++) {
+                for (int k = 0; k < nums.length; k++) {
+                    for (int l = 0; l < nums.length; l++) {
+                        if (i!=j && i!=k && i!=l && j!=k && j!=l && k!=l){
+                            productA = nums[i]*nums[j];
+                            productB = nums[k]*nums[l];
+                            if (productA == productB){
+                                count++;
+                        }
+                    }
+                }
+            }
          }
-
-
-
-        return 0;
         
     }
+    return count;
 }
     
 }
