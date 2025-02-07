@@ -1,14 +1,15 @@
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class leetcodePractice {
     public static void main(String[] args) {
         // int[] nums = { 3, 6, 10, 1, 8, 9, 9, 8, 9 };
         // System.out.println(maxAscendingSum(nums));
-       // System.out.println(areAlmostEqual("bank", "kanb"));
-    //    int[]  nums = {2,3,4,6};
-    //    System.out.println(tupleSameProduct(nums));
-        int[][] queries = {{1,4},{2,5},{1,3},{3,4}};
+        // System.out.println(areAlmostEqual("bank", "kanb"));
+        // int[] nums = {2,3,4,6};
+        // System.out.println(tupleSameProduct(nums));
+        int[][] queries = {{0,1},{1,2},{2,2},{3,4},{4,5}};
         System.out.println(java.util.Arrays.toString(queryResults(4, queries)));
     }
 
@@ -44,27 +45,29 @@ public class leetcodePractice {
         }
         return highest;
     }
- 
-    public static boolean areAlmostEqual(String s1, String s2) {
-        String newS1="";
-        
-        if (s1.equals(s2)){
-            return true;
-        }else if (s1.length() != s2.length()){
-            return false;
-        } 
 
-        for (int i = 0; i < s1.length()-1; i++) {
-            for (int index = i+1; index < s1.length(); index++) {
-                System.out.println("Swapping: "+ s1.charAt(i) + " with " + s1.charAt(index));
-                if (i==0){
-                     newS1= s1.charAt(index) + s1.substring(i+1, index)+ s1.substring(i,i+1)+ s1.substring(index+1);
-                }else{
-                     newS1= s1.substring(0, i)+ s1.charAt(index) + s1.substring(i+1, index)+ s1.substring(i,i+1)+ s1.substring(index+1);
+    public static boolean areAlmostEqual(String s1, String s2) {
+        String newS1 = "";
+
+        if (s1.equals(s2)) {
+            return true;
+        } else if (s1.length() != s2.length()) {
+            return false;
+        }
+
+        for (int i = 0; i < s1.length() - 1; i++) {
+            for (int index = i + 1; index < s1.length(); index++) {
+                System.out.println("Swapping: " + s1.charAt(i) + " with " + s1.charAt(index));
+                if (i == 0) {
+                    newS1 = s1.charAt(index) + s1.substring(i + 1, index) + s1.substring(i, i + 1)
+                            + s1.substring(index + 1);
+                } else {
+                    newS1 = s1.substring(0, i) + s1.charAt(index) + s1.substring(i + 1, index) + s1.substring(i, i + 1)
+                            + s1.substring(index + 1);
                 }
-               
-                //System.out.println(newS1);
-                if (newS1.equals(s2)){
+
+                // System.out.println(newS1);
+                if (newS1.equals(s2)) {
                     return true;
                 }
             }
@@ -73,38 +76,66 @@ public class leetcodePractice {
     }
 
     public static int tupleSameProduct(int[] nums) {
-        int count=0;
+        int count = 0;
         int productA = 0;
         int productB = 0;
-       HashMap<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length-1; i++) {
-            for (int j = i+1; j < nums.length; j++) {
-                productA=nums[i]*nums[j];
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                productA = nums[i] * nums[j];
             }
         }
-    //      for (int i = 0; i < nums.length; i++) {
-    //         for (int j = 0; j < nums.length; j++) {
-    //             for (int k = 0; k < nums.length; k++) {
-    //                 for (int l = 0; l < nums.length; l++) {
-    //                     if (i!=j && i!=k && i!=l && j!=k && j!=l && k!=l){
-    //                         productA = nums[i]*nums[j];
-    //                         productB = nums[k]*nums[l];
-    //                         if (productA == productB){
-    //                             count++;
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //      } 
-    // }
-    return count;
-}
+        // for (int i = 0; i < nums.length; i++) {
+        // for (int j = 0; j < nums.length; j++) {
+        // for (int k = 0; k < nums.length; k++) {
+        // for (int l = 0; l < nums.length; l++) {
+        // if (i!=j && i!=k && i!=l && j!=k && j!=l && k!=l){
+        // productA = nums[i]*nums[j];
+        // productB = nums[k]*nums[l];
+        // if (productA == productB){
+        // count++;
+        // }
+        // }
+        // }
+        // }
+        // }
+        // }
+        return count;
+    }
 
-public static int[] queryResults(int limit, int[][] queries) {
-     int[] arrInt= new int[limit];
-     
-     
-     return arrInt;
-}
-    
+    public static int[] queryResults(int limit, int[][] queries) {
+        int count = 0;
+        int[] colours = new int[limit + 1];
+        for (int i = 0; i < colours.length; i++) {
+            colours[i] = 0;
+        }
+
+        ArrayList<Integer> arrInt = new ArrayList<>();
+        for (int[] i : queries) {
+            colours[i[0]] = i[1];
+            //System.out.println(java.util.Arrays.toString(colours));
+            HashMap<Integer, Integer> colourCount = new HashMap<>();
+            for (int colour : colours) {
+                colourCount.put(colour, colourCount.getOrDefault(colour, 0) + 1);
+            }
+            System.out.println(colourCount);
+            for (int j : colourCount.keySet()) {
+                if (colourCount.get(j) >= 1 && j!=0) {
+                    count++;
+                }
+             
+              //  count = 0;
+            }
+               //System.out.println(count);
+                arrInt.add(count);
+                count = 0;
+        }
+
+        int[] result = new int[arrInt.size()];
+        for (int i = 0; i < arrInt.size(); i++) {
+            result[i] = arrInt.get(i);
+        }
+        return result;
+    }
+
 }
