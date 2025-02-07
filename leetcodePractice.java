@@ -6,9 +6,10 @@ public class leetcodePractice {
         // int[] nums = { 3, 6, 10, 1, 8, 9, 9, 8, 9 };
         // System.out.println(maxAscendingSum(nums));
        // System.out.println(areAlmostEqual("bank", "kanb"));
-       int[]  nums = {2,3,4,6};
-       System.out.println(tupleSameProduct(nums));
-
+    //    int[]  nums = {2,3,4,6};
+    //    System.out.println(tupleSameProduct(nums));
+        int[][] queries = {{1,4},{2,5},{1,3},{3,4}};
+        System.out.println(java.util.Arrays.toString(queryResults(4, queries)));
     }
 
     public static int maxAscendingSum(int[] nums) {
@@ -97,6 +98,13 @@ public class leetcodePractice {
     //      } 
     // }
     return count;
+}
+
+public static int[] queryResults(int limit, int[][] queries) {
+     int[] arrInt= new int[limit];
+     
+     
+     return arrInt;
 }
     
 }
