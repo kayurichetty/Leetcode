@@ -104,31 +104,25 @@ public class leetcodePractice {
     }
 
     public static int[] queryResults(int limit, int[][] queries) {
-        int count = 0;
         int[] colours = new int[limit + 1];
-        for (int i = 0; i < colours.length; i++) {
-            colours[i] = 0;
-        }
-
         ArrayList<Integer> arrInt = new ArrayList<>();
-        for (int[] i : queries) {
-            colours[i[0]] = i[1];
-            //System.out.println(java.util.Arrays.toString(colours));
-            HashMap<Integer, Integer> colourCount = new HashMap<>();
-            for (int colour : colours) {
-                colourCount.put(colour, colourCount.getOrDefault(colour, 0) + 1);
-            }
-            System.out.println(colourCount);
-            for (int j : colourCount.keySet()) {
-                if (colourCount.get(j) >= 1 && j!=0) {
-                    count++;
+        HashMap<Integer, Integer> colourCount = new HashMap<>();
+
+        for (int[] query : queries) {
+            int index = query[0];
+            int colour = query[1];
+
+            if (colours[index] != 0) {
+                colourCount.put(colours[index], colourCount.get(colours[index]) - 1);
+                if (colourCount.get(colours[index]) == 0) {
+                    colourCount.remove(colours[index]);
                 }
-             
-              //  count = 0;
             }
-               //System.out.println(count);
-                arrInt.add(count);
-                count = 0;
+
+            colours[index] = colour;
+            colourCount.put(colour, colourCount.getOrDefault(colour, 0) + 1);
+
+            arrInt.add(colourCount.size());
         }
 
         int[] result = new int[arrInt.size()];
