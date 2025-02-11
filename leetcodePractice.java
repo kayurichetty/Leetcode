@@ -135,8 +135,7 @@ public class leetcodePractice {
 
     public static String removeOccurrences(String s, String part) {
         while (s.contains(part)) {
-            int index=s.indexOf(part);
-            s=s.replaceAll(part, "");
+            s=s.replaceFirst(part, "");
         }
         return s;
     }
