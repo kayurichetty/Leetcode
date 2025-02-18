@@ -11,7 +11,7 @@ public class leetcodePractice {
         // System.out.println(tupleSameProduct(nums));
         // int[][] queries = {{0,1},{1,2},{2,2},{3,4},{4,5}};
         // System.out.println(java.util.Arrays.toString(queryResults(4, queries)));
-        System.out.println(removeOccurrences("daabcbaabcbc", "abc"));
+        System.out.println(smallestNumber("IIIDIDDD"));
     }
 
     public static int maxAscendingSum(int[] nums) {
@@ -140,4 +140,18 @@ public class leetcodePractice {
         return s;
     }
 
+    public static String smallestNumber(String pattern) {
+        int[] ans=new int[9];
+        int count =0;
+        int[] nums={1,2,3,4,5,6,7,8,9};
+        for (char c : pattern.toCharArray()) {
+                if (c=='I') {
+                    ans[count]=1;
+                }else if (c=='D'){
+
+                }
+            
+        }
+        return "";
+    }
 }
