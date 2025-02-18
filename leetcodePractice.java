@@ -9,8 +9,9 @@ public class leetcodePractice {
         // System.out.println(areAlmostEqual("bank", "kanb"));
         // int[] nums = {2,3,4,6};
         // System.out.println(tupleSameProduct(nums));
-        int[][] queries = {{0,1},{1,2},{2,2},{3,4},{4,5}};
-        System.out.println(java.util.Arrays.toString(queryResults(4, queries)));
+        // int[][] queries = {{0,1},{1,2},{2,2},{3,4},{4,5}};
+        // System.out.println(java.util.Arrays.toString(queryResults(4, queries)));
+        System.out.println(removeOccurrences("daabcbaabcbc", "abc"));
     }
 
     public static int maxAscendingSum(int[] nums) {
@@ -132,5 +133,11 @@ public class leetcodePractice {
         return result;
     }
 
-    
+    public static String removeOccurrences(String s, String part) {
+        while (s.contains(part)) {
+            s=s.replaceFirst(part, "");
+        }
+        return s;
+    }
+
 }
