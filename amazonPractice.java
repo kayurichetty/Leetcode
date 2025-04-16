@@ -17,7 +17,8 @@ public class amazonPractice {
 
     // System.out.println(isValidBST(root));
     //System.out.println(reverseWords("a b    c"));
-    System.out.println(isBracketValid("()"));
+    //System.out.println(isBracketValid("()"));
+    System.out.println(new String[]{"2","1","+","3","*"});
     }
 
     public static boolean isValidBST(TreeNode root) {
@@ -186,6 +187,12 @@ public class amazonPractice {
             }
         }
         return stack.isEmpty();
+    }
+
+    public static int evalRPN(String[] tokens) {
+        String[] operations=new String[]{"+", "-","*","/"};
+    
+        return 0;
     }
 }
 
